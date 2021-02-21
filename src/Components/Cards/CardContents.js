@@ -2,10 +2,19 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  makeStyles,
   Typography,
 } from "@material-ui/core";
 import React from "react";
 
+const useStyles = makeStyles({
+  image: {
+    height: "300px",
+  },
+  modalImage: {
+    height: "500px",
+  },
+});
 const CardContents = ({
   handlePreview,
   thumb,
@@ -13,10 +22,11 @@ const CardContents = ({
   description,
   modal,
 }) => {
+  const classes = useStyles();
   return (
     <CardActionArea>
       <CardMedia
-        className={`w-full ${modal ? "h-96" : "h-44"}`}
+        className={modal ? classes.modalImage : classes.image}
         onClick={handlePreview}
         image={thumb || regular}
         title={description}

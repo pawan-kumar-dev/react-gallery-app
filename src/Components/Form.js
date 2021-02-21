@@ -1,20 +1,42 @@
-import { Button, MenuList, Select } from "@material-ui/core";
+import { Button, makeStyles, MenuList, Select } from "@material-ui/core";
 import React from "react";
 
+const useStyles = makeStyles((theme) => ({
+  form: {
+    display: "flex",
+    padding: "10px",
+    alignItems: "center",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      alignItems: "stretch",
+    },
+  },
+  input: {
+    flex: "1",
+    padding: "10px",
+    border: "2px solid black",
+    borderRadius: "10px",
+  },
+  button: {
+    display: "flex",
+    [theme.breakpoints.down("md")]: {
+      margin: "10px auto",
+    },
+  },
+}));
+
 const Form = ({ text, handleSubmit, perPage, setPerPage, setText }) => {
+  const classes = useStyles();
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex p-4 items-center md:flex-col md:items-stretch "
-    >
+    <form onSubmit={handleSubmit} className={classes.form}>
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Search Here"
-        className="flex-1 border-gray-500 border-2 p-4 rounded-sm "
+        className={classes.input}
       />
-      <div className="flex md:mx-auto md:my-2 ">
+      <div className={classes.button}>
         <div>
           Per Page{" "}
           <Select

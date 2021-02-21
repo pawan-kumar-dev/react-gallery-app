@@ -1,8 +1,23 @@
-import { Menu, MenuItem } from "@material-ui/core";
+import { makeStyles, Menu, MenuItem } from "@material-ui/core";
 import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import { CardHeaders, CardContents, CardFooter } from "./Cards";
+
+const useStyles = makeStyles({
+  card: {
+    display: "flex",
+    flexDirection: "column",
+    maxWidth: "400px",
+    width: "100%",
+    margin: "10px 0",
+  },
+  action: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+});
 const CardImages = ({
   description,
   createdAt,
@@ -24,6 +39,8 @@ const CardImages = ({
   const [like, setLike] = useState(false);
   const [likeCount, setLikeCount] = useState(likes ? likes : 0);
   const [anchorEl, setAnchorEl] = useState(null);
+
+  const classes = useStyles();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -65,7 +82,7 @@ const CardImages = ({
     });
   };
   return (
-    <Card className="flex flex-col max-w-sm w-full my-4 ">
+    <Card className={classes.card}>
       <CardHeaders
         small={small}
         medium={medium}
@@ -104,7 +121,7 @@ const CardImages = ({
         regular={regular}
         description={description}
       />
-      <CardActions disableSpacing className="flex justify-between items-center">
+      <CardActions disableSpacing className={classes.action}>
         <CardFooter
           instagram_username={instagram_username}
           twitter_username={twitter_username}

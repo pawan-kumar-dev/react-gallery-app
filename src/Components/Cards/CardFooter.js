@@ -1,4 +1,4 @@
-import { Button, IconButton, Tooltip } from "@material-ui/core";
+import { Button, IconButton, makeStyles, Tooltip } from "@material-ui/core";
 import React from "react";
 import CardIcon from "./CardIcon";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -8,6 +8,13 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import GetAppIcon from "@material-ui/icons/GetApp";
 
+const useStyles = makeStyles({
+  footer: {
+    display: "flex",
+    flex: "1",
+    alignItems: "center",
+  },
+});
 const CardFooter = ({
   instagram_username,
   twitter_username,
@@ -21,9 +28,10 @@ const CardFooter = ({
   regular,
   likes,
 }) => {
+  const classes = useStyles();
   return (
     <>
-      <div className="flex-1 flex items-center ">
+      <div className={classes.footer}>
         {modal ? (
           <p>{likes ? likes : 0} Likes</p>
         ) : (

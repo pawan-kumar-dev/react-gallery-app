@@ -1,10 +1,22 @@
 import React from "react";
 import Slide from "@material-ui/core/Slide";
-import { DialogContent, DialogActions, Dialog } from "@material-ui/core";
+import {
+  DialogContent,
+  DialogActions,
+  Dialog,
+  makeStyles,
+} from "@material-ui/core";
 import { CardHeaders, CardContents, CardFooter } from "./Cards";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
+});
+const useStyles = makeStyles({
+  action: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 });
 const Modal = ({
   data: {
@@ -24,6 +36,7 @@ const Modal = ({
   },
   setData,
 }) => {
+  const classes = useStyles();
   return (
     <Dialog
       open={true}
@@ -50,10 +63,7 @@ const Modal = ({
           modal
         />
       </DialogContent>
-      <DialogActions
-        disableSpacing
-        className="flex justify-between items-center"
-      >
+      <DialogActions disableSpacing className={classes.action}>
         <CardFooter
           modal
           likes={likes}

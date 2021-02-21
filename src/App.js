@@ -4,8 +4,6 @@ import Axios from "./Api";
 import { accessKey } from "./Keys";
 import { CardContainer, Form } from "./Components";
 import { Backdrop, CircularProgress } from "@material-ui/core";
-import "./Styles/index.css";
-import "./Styles/tailwind.css";
 
 function App() {
   const [text, setText] = useState("");
