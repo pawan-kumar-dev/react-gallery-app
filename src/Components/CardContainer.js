@@ -11,6 +11,9 @@ const useStyles = makeStyles({
     justifyContent: "space-evenly",
     alignItems: "stretch",
     flexWrap: "wrap",
+    maxWidth: "1280px",
+    margin: "0 auto",
+    width: "100%",
   },
   listContainer: {
     display: "flex",
@@ -37,8 +40,7 @@ const CardContainer = ({ images }) => {
             startIcon={<AppsIcon />}
             color="primary"
             variant={!list ? "contained" : "outlined"}
-            onClick={() => setList(false)}
-          >
+            onClick={() => setList(false)}>
             Grid View
           </Button>
           <span style={{ margin: "10px" }} />
@@ -46,15 +48,13 @@ const CardContainer = ({ images }) => {
             startIcon={<ListIcon />}
             color="primary"
             variant={list ? "contained" : "outlined"}
-            onClick={() => setList(true)}
-          >
+            onClick={() => setList(true)}>
             List View
           </Button>
         </div>
       </Hidden>
       <div
-        className={`${classes.gridContainer} ${list && classes.listContainer}`}
-      >
+        className={`${classes.gridContainer} ${list && classes.listContainer}`}>
         {data && <Modal data={data} setData={setData} />}
         {images.map(
           ({ alt_description, id, created_at, likes, urls, user }) => {

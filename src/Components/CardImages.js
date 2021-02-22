@@ -98,8 +98,7 @@ const CardImages = ({
           anchorEl={anchorEl}
           keepMounted
           open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
+          onClose={handleClose}>
           {menu.map(({ name, href }) => {
             return (
               <MenuItem
@@ -107,8 +106,7 @@ const CardImages = ({
                 onClick={handleClose}
                 component="a"
                 target="_blank"
-                href={href}
-              >
+                href={href}>
                 {name}
               </MenuItem>
             );

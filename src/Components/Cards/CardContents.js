@@ -14,6 +14,9 @@ const useStyles = makeStyles({
   modalImage: {
     height: "500px",
   },
+  imageBg: {
+    backgroundSize: "contain",
+  },
 });
 const CardContents = ({
   handlePreview,
@@ -27,6 +30,7 @@ const CardContents = ({
     <CardActionArea>
       <CardMedia
         className={modal ? classes.modalImage : classes.image}
+        classes={{ root: classes.imageBg }}
         onClick={handlePreview}
         image={thumb || regular}
         title={description}

@@ -17,6 +17,9 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  modal: {
+    width: "100%",
+  },
 });
 const Modal = ({
   data: {
@@ -43,8 +46,8 @@ const Modal = ({
       TransitionComponent={Transition}
       keepMounted
       onClose={() => setData(null)}
-      maxWidth="lg"
-    >
+      classes={{ paperWidthMd: classes.modal }}
+      maxWidth="md">
       <CardHeaders
         small={small}
         medium={medium}
