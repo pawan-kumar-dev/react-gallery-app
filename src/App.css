@@ -2,3 +2,7 @@
   margin: 0;
   outline: none !important;
 }
+.darkTheme {
+  background-color: black;
+  color: white;
+}

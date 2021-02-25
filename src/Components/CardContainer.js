@@ -1,4 +1,10 @@
-import { Button, Hidden, makeStyles } from "@material-ui/core";
+import {
+  Button,
+  FormControlLabel,
+  Hidden,
+  makeStyles,
+  Switch,
+} from "@material-ui/core";
 import React, { useState } from "react";
 import CardImages from "./CardImages";
 import Modal from "./Modal";
@@ -28,7 +34,7 @@ const useStyles = makeStyles({
     margin: "0 auto",
   },
 });
-const CardContainer = ({ images }) => {
+const CardContainer = ({ images, darkTheme, setDarkTheme }) => {
   const [data, setData] = useState(null);
   const [list, setList] = useState(false);
   const classes = useStyles();
@@ -53,6 +59,19 @@ const CardContainer = ({ images }) => {
           </Button>
         </div>
       </Hidden>
+      <div className={classes.buttons}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={darkTheme}
+              onChange={() => setDarkTheme(!darkTheme)}
+              name="checkedB"
+              color="primary"
+            />
+          }
+          label={`Switch ${darkTheme ? "Light" : "Dark"} Theme`}
+        />
+      </div>
       <div
         className={`${classes.gridContainer} ${list && classes.listContainer}`}>
         {data && <Modal data={data} setData={setData} />}
